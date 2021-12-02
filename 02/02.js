@@ -18,9 +18,11 @@ const input = await fileToArray(file);
 const part1 = (input) =>
   input.reduce(
     (acc, cur) => {
-      if (cur[0] === 'forward') return { ...acc, x: acc.x + Number(cur[1]) };
-      if (cur[0] === 'down') return { ...acc, y: acc.y + Number(cur[1]) };
-      if (cur[0] === 'up') return { ...acc, y: acc.y - Number(cur[1]) };
+      const amount = Number(cur[1]);
+
+      if (cur[0] === 'forward') return { ...acc, x: acc.x + amount };
+      if (cur[0] === 'down') return { ...acc, y: acc.y + amount };
+      if (cur[0] === 'up') return { ...acc, y: acc.y - amount };
     },
     {
       x: 0,
